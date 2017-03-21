@@ -1,4 +1,4 @@
 {
-  "name": "validatejs",
-  "main": "validate.js"
+  "name": "yavjs",
+  "main": "yavjs.js"
 }

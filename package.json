@@ -1,11 +1,11 @@
 {
-  "name": "validate-js",
-  "version": "2.0.1",
-  "description": "Lightweight JavaScript form validation library inspired by CodeIgniter.",
-  "main": "validate.js",
+  "name": "yavjs-js",
+  "version": "0.0.1",
+  "description": "Lightweight JavaScript form validation fork from validatejs",
+  "main": "yavjs.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/rickharrison/validate.js"
+    "url": "git://github.com/pbellerive/yavjs"
   },
   "keywords": [
     "validate",
@@ -14,10 +14,10 @@
     "browser",
     "browserify"
   ],
-  "author": "Rick Harrison",
+  "author": "Patrick Bellerive",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rickharrison/validate.js/issues"
+    "url": "https://github.com/pbellerive/yavjs/issues"
   },
-  "homepage": "https://github.com/rickharrison/validate.js"
+  "homepage": "https://github.com/pbellerive/yavjs"
 }

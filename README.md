@@ -1,6 +1,6 @@
-# validate.js
+# yavjs.js
 
-yavjs is a fork of validate.js and is lightweight JavaScript form validation library.
+yavjs is a fork of yavjs.js and is lightweight JavaScript form validation library.
 
 ## Features
 
@@ -49,25 +49,14 @@ yavjs is a fork of validate.js and is lightweight JavaScript form validation lib
 
 ## Documentation
 
-You can view everything at http://rickharrison.github.com/validate.js
+You can view everything at https://github.com/pbellerive/yavjs/
 
 ## Browserify
 
-It is published to npm under validate-js
+It is published to npm under yavjs
 
 ```
 npm install yavjs
 ```
 
-## Multi-Language Support
-
-jnhwkim's fork added multi-language support viewable at https://github.com/jnhwkim/validate.js
-
-Chinese - https://github.com/chilijung/validate.js
-
-French - https://github.com/Facyla/validate.js
-
-Brazilian Portuguese - https://github.com/fabiowitt/validate.js
-
-
-[![ghit.me](https://ghit.me/badge.svg?repo=rickharrison/validate.js)](https://ghit.me/repo/rickharrison/validate.js)
+[![ghit.me](https://ghit.me/badge.svg?repo=rickharrison/yavjs.js)](https://ghit.me/repo/rickharrison/yavjs.js)
