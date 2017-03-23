@@ -123,35 +123,12 @@
         this.handlers = {};
         this.conditionals = {};
 
-        // for (var i = 0, fieldLength = fields.length; i < fieldLength; i++) {
-        //     var field = fields[i];
-        //
-        //     // If passed in incorrectly, we need to skip the field.
-        //     if ((!field.name && !field.names) || !field.rules) {
-        //         console.warn('validate.js: The following field is being skipped due to a misconfiguration:');
-        //         console.warn(field);
-        //         console.warn('Check to ensure you have properly configured a name and rules for this field');
-        //         continue;
-        //     }
-        //
-        //     /*
-        //      * Build the master fields array that has all the information needed to validate
-        //      */
-        //
-        //     if (field.names) {
-        //         for (var j = 0, fieldNamesLength = field.names.length; j < fieldNamesLength; j++) {
-        //             this._addField(field, field.names[j]);
-        //         }
-        //     } else {
-        //         this._addField(field, field.name);
-        //     }
-        // }
         this.setRules(fields);
         this._autoloadField();
+
         /*
          * Attach an event callback for the form submission
          */
-
         var _onsubmit = this.form.onsubmit;
 
         this.form.onsubmit = (function(that) {
@@ -187,6 +164,12 @@
     FormValidator.prototype.setMessage = function(locale, rule, message) {
         this.messages[locale][rule] = message;
 
+        // return this for chaining
+        return this;
+    };
+
+    FormValidator.prototype.addLocaleMessage = function(locale, messages) {
+        this.messages[locale] = messages;
         // return this for chaining
         return this;
     };
@@ -285,7 +268,8 @@
                 name: el.name,
                 display: el.getAttribute('data-yavjs-display') || el.name || el.id,
                 rules: el.getAttribute('data-yavjs-rules'),
-                depends: el.getAttribute('data-yavjs-depends')
+                depends: el.getAttribute('data-yavjs-depends'),
+                on: el.getAttribute('data-yavjs-on')
             }
             fields.push(field);
         }
@@ -312,6 +296,21 @@
             value: null,
             checked: null
         };
+        if (typeof field.on !== 'undefined' && field.on != null) {
+            console.log(field.on);
+            var elements = document.getElementsByName(nameValue);
+            var eventParams = field.on;
+            if (typeof eventParams == 'string') {
+                eventParams = JSON.parse(eventParams);
+            }
+            var validator = this;
+            for (var i=0; i<elements.length; i++) {
+                elements[i].addEventListener(eventParams.event, function(event) {
+                    window[eventParams.callback](event,validator.validateField(field));
+                }, false
+                );
+            }
+        }
     };
 
     /*

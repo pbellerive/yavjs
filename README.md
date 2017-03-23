@@ -1,6 +1,6 @@
 # yavjs.js
 
-yavjs is a fork of yavjs.js and is lightweight JavaScript form validation library.
+yavjs is a fork of validatejs.js and is lightweight JavaScript form validation library.
 
 ## Features
 
@@ -16,6 +16,7 @@ yavjs is a fork of yavjs.js and is lightweight JavaScript form validation librar
 ## How to use
 
 ```javascript
+    To bind on form submit event.
     var validator = new FormValidator('example_form', [{
         name: 'req',
         display: 'required',
@@ -44,9 +45,13 @@ yavjs is a fork of yavjs.js and is lightweight JavaScript form validation librar
         if (errors.length > 0) {
             // Show the errors
         }
-    });
+    }); 
 ```
-
+    With autload you need to add inline attributes
+    data-yavjs-rules = same syntax as in the declaration of the rules
+    data-yavjs-display = The display name to use in message else name is used
+    data-yavjs-on = a json compose of 2 property : on:eventName, callback
+    
 ## Documentation
 
 You can view everything at https://github.com/pbellerive/yavjs/
@@ -58,5 +63,3 @@ It is published to npm under yavjs
 ```
 npm install yavjs
 ```
-
-[![ghit.me](https://ghit.me/badge.svg?repo=rickharrison/yavjs.js)](https://ghit.me/repo/rickharrison/yavjs.js)
