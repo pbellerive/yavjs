@@ -51,6 +51,15 @@ yavjs is a fork of validatejs.js and is lightweight JavaScript form validation l
     data-yavjs-rules = same syntax as in the declaration of the rules
     data-yavjs-display = The display name to use in message else name is used
     data-yavjs-on = a json compose of 2 property : on:eventName, callback
+    The callback of data-yavajs-on receive two parameter, the event and errorObject
+    
+    errorObject =   id: field.id,
+                    display: field.display,
+                    element: field.element,
+                    name: field.name,
+                    message: message,
+                    messages: [],
+                    rule: method
     
 ## Documentation
 
