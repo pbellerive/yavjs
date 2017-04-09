@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/pbellerive/yavjs/issues"
   },
-  "homepage": "https://github.com/pbellerive/yavjs"
+  "homepage": "https://github.com/pbellerive/yavjs",
+  "devDependencies": {
+    "gulp-minify": "0.0.15"
+  },
+  "dependencies": {
+    "gulp-dest": "^0.2.3"
+  }
 }
