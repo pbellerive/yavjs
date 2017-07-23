@@ -76,7 +76,8 @@
         },
         callback: function(errors) {
 
-        }
+        },
+        locale: 'en'
     };
 
     /*
@@ -113,8 +114,8 @@
      *     @argument event - The javascript event
      */
 
-    var FormValidator = function(formNameOrNode, fields, callback) {
-        this.locale = defaults.messages[navigator.language]== 'undefined' ? 'en' : navigator.language;
+    var FormValidator = function(formNameOrNode, fields, callback,  locale) {
+        this.locale = locale || defaults.locale ;
         this.callback = callback || defaults.callback;
         this.errors = [];
         this.fields = {};
@@ -135,7 +136,9 @@
             return function(evt) {
                 try {
                     return that.validateForm(evt) && (_onsubmit === undefined || _onsubmit());
-                } catch(e) {}
+                } catch(e) {
+                    console.error(e.message);
+                }
             };
         })(this);
     },
@@ -325,15 +328,6 @@
         for (var key in this.fields) {
             if (this.fields.hasOwnProperty(key)) {
                 var field = this.fields[key] || {};
-                    // element = this.form[field.name];
-
-                // if (element && element !== undefined) {
-                //     field.id = attributeValue(element, 'id');
-                //     field.element = element;
-                //     field.type = (element.length > 0) ? element[0].type : element.type;
-                //     field.value = attributeValue(element, 'value');
-                //     field.checked = attributeValue(element, 'checked');
-
                     /*
                      * Run through the rules for each field.
                      * If the field has a depends conditional, only validate the field
