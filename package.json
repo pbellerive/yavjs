@@ -1,6 +1,6 @@
 {
   "name": "yavjs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Lightweight JavaScript form validation fork from validatejs",
   "main": "yavjs.js",
   "repository": {
