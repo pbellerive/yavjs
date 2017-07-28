@@ -268,6 +268,7 @@
         for (var i=0; i<elements.length; i++) {
             var el = elements[i];
             var field = {
+                id: el.id,
                 name: el.name,
                 display: el.getAttribute('data-yavjs-display') || el.name || el.id,
                 rules: el.getAttribute('data-yavjs-rules'),
