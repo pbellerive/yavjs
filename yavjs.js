@@ -294,7 +294,7 @@
             display: field.display || nameValue,
             rules: field.rules,
             depends: field.depends,
-            id: null,
+            id: field.id,
             element: null,
             type: null,
             value: null,
@@ -392,7 +392,7 @@
 
         element = this.form[field.name] || this.getFieldFromName(field) || document.getElementById(field.name);
         if (element && element !== undefined) {
-            field.id = attributeValue(element, 'id');
+            field.id = attributeValue(element, 'id') || field.id;
             field.element = element;
             field.type = (element.length > 0) ? element[0].type : element.type;
             field.value = attributeValue(element, 'value');
